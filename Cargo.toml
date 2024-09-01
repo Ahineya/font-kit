@@ -57,7 +57,7 @@ core-graphics = "0.23"
 core-text = "20.1.0"
 
 [target.'cfg(not(any(target_family = "windows", target_os = "macos", target_os = "ios")))'.dependencies]
-freetype-sys = "0.20"
+#freetype-sys = "0.20"
 
 [target.'cfg(not(any(target_family = "windows", target_os = "macos", target_os = "ios", target_arch = "wasm32", target_env = "ohos")))'.dependencies]
 yeslogic-fontconfig-sys = "6.0"

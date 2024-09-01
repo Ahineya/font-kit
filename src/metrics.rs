@@ -56,3 +56,19 @@ pub struct Metrics {
     /// This corresponds to the `xMin`/`xMax`/`yMin`/`yMax` values in the OpenType `head` table.
     pub bounding_box: RectF,
 }
+
+impl Default for Metrics {
+    fn default() -> Metrics {
+        Metrics {
+            units_per_em: 1000,
+            ascent: 800.0,
+            descent: -200.0,
+            line_gap: 0.0,
+            underline_position: -100.0,
+            underline_thickness: 50.0,
+            cap_height: 700.0,
+            x_height: 500.0,
+            bounding_box: RectF::default(),
+        }
+    }
+}

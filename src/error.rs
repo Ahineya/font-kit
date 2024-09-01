@@ -48,6 +48,8 @@ pub enum FontLoadingError {
     NoFilesystem,
     /// A disk or similar I/O error occurred while attempting to load the font.
     Io(io::Error),
+    
+    NotImplemented,
 }
 
 impl Error for FontLoadingError {}
@@ -58,6 +60,7 @@ impl_display! { FontLoadingError, {
         Parse => "parse error",
         NoFilesystem => "no filesystem present",
         Io(e) => format!("I/O error: {}", e),
+        NotImplemented => "not implemented",
     }
 }
 

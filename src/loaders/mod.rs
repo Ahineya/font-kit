@@ -20,7 +20,7 @@ pub use crate::loaders::core_text as default;
 pub use crate::loaders::directwrite as default;
 
 #[cfg(any(
-    not(any(target_os = "macos", target_os = "ios", target_family = "windows")),
+    not(any(target_os = "macos", target_os = "ios", target_family = "windows", target_arch = "wasm32")),
     feature = "loader-freetype-default"
 ))]
 pub use crate::loaders::freetype as default;
@@ -32,7 +32,13 @@ pub mod core_text;
 pub mod directwrite;
 
 #[cfg(any(
-    not(any(target_os = "macos", target_os = "ios", target_family = "windows")),
+    not(any(target_os = "macos", target_os = "ios", target_family = "windows", target_arch = "wasm32")),
     feature = "loader-freetype"
 ))]
 pub mod freetype;
+
+#[cfg(target_arch = "wasm32")]
+pub use crate::loaders::web as default;
+
+#[cfg(target_arch = "wasm32")]
+pub mod web;
